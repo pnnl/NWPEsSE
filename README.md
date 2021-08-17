@@ -23,6 +23,9 @@ See user manual in detail for using NWPEsSE.
 # Citation
 [1] Zhang, J.; Glezakou, V.-A.; Rousseau, R.; Nguyen, M.-T.; NWPEsSe: An Adaptive-Learning    Global Optimization Algorithm for Nanosized Cluster Systems. J. Chem. Theory Comput. 2020, 16, 3947-3958
 
+<img src=https://github.com/pnnl/NWPEsSE/blob/a8896f8b3d887c686e3e6503fa0f19806363c77f/jctcce_v016i006-3.jpg width=600/>
+
+
 For questions on the theory and implementation of NWPEsSe, please contact:
     Vanda Glezakou, vanda.glezakou@pnnl.gov
     Difan Zhang, difan.zhang@pnnl.gov

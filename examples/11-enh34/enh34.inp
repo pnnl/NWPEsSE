@@ -1,0 +1,10 @@
+enh34             # Result file name
+enh34.cluster     # Cluster file name
+40                # Maximal number of calculations
+>>>>
+inbox 0. 0. 0. 4. 4. 4.
+>>>>
+../../xyz2gaussian optfile $inp$ > $xxx$.gjf
+g09 < $xxx$.gjf > $xxx$.log 2>/dev/null
+../../gaussian2xyz $xxx$.log > $out$
+>>>>

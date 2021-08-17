@@ -1,0 +1,9 @@
+au8tio2110             # Result file name
+au8tio2110.cluster     # Cluster file name
+50                     # Maximal number of calculations
+>>>>
+pos 9.455 8.86 0. 0. 0. 0.
+inbox 7. 5. 9. 14. 12. 10.
+>>>>
+./cp2k4abcluster.sh $xxx$ $inp$ $out$
+>>>>

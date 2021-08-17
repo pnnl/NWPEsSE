@@ -1,0 +1,16 @@
+au8pph37          # Result file name
+au8pph37.cluster  # Cluster file name
+200               # Maximal number of calculations
+>>>>
+insphere 0 0 0 5 5 5
+micelle 1 1 1 2 12 23 0 0 0 6 6 6 
+>>>>
+cp $inp$ $xxx$.xyz
+../xtb/bin/xtb $xxx$.xyz -gfn 1 -chrg +2 -o > $xxx$.out
+energy=`awk 'NR==2{print $3}' xtbopt.xyz` ; sed -i "2c ${energy}" xtbopt.xyz
+mv xtbopt.xyz $out$
+rm $xxx$.xyz $xxx$.out charges wbo xtbopt.log xtbrestart
+>>>>
+
+
+ 

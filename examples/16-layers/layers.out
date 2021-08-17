@@ -1,0 +1,127 @@
+                                                      
+       * * * * * * * * * * * * * * * * * *            
+      *       ____   _____ _           _   *          
+     *  /\   |  _ \ / ____| |         | |  * * * * *  
+    *  /  \  | |_) | |    | |_   _ ___| |_ ___ _ __  *
+   *  / /\ \ |  _ <| |    | | | | / __| __/ _ \ '__| *
+  *  / ____ \| |_) | |____| | |_| \__ \ ||  __/ |  *  
+  * /_/    \_\____/ \_____|_|\__,_|___/\__\___|_|  *  
+  *                                                *  
+  * * * * * * * * * * * * * * * * * * * * * * * * *   
+                                                      
+
+ABCluster 2.1
+Specific flag:  official version
+Platform:       WINDOWS
+Compiled by:    pnl\zhan055@WE37103
+Compiling date: May 15 2019 12:55:42
+C++ compiler:   g++.exe (x86_64-posix-seh-rev0, Built by MinGW-W64 project) 8.1.0
+C++ options:    -O3 -Os -fno-exceptions --std=c++0x -fopenmp  -static-libstdc++ -static-libgcc -static -mavx -msse4 
+
+Contributors:
+Jun Zhang(University of Cologne): Design and coding.
+
+For any suggestions, comments, and questions on the theory and
+implementation of ABCluster, please feel free to contact:
+
+Dr. Jun Zhang, ZhangJunQcc@gmail.com
+
+If you used this program in your work, please cite these references:
+
+[1] Zhang, J.; Dolg, M.; ABCluster: The Artificial Bee Colony Algorithm for
+    Cluster Global Optimization. Phys. Chem. Chem. Phys. 2015, 17, 24173-24181.
+[2] Zhang, J.; Dolg, M.; Global Optimization of Clusters of Rigid Molecules by the
+    Artificial Bee Colony Algorithm. Phys. Chem. Chem. Phys. 2016, 18, 3003-3010.
+
+Program starts at Wed May 22 16:47:21 2019.
+Command line: " ..\..\..\lego.exe layers.inp "
+Process ID:   13788
+Run by:       zhan055@WE37103
+Available CPU cores:    8
+Read "OMP_NUM_THREADS": Unset
+
+Random number testing (integers): 16616...6000
+Random number testing (fractals): 0.80858195...0.27003374
+
+ -- Input/Output Parameters --
+Input file name:       layers.inp
+Cluster file name:     layers.cluster
+Result file directory: layers-LM
+
+ -- Cluster Components: from [ layers.cluster ] --
+ -------------------------------------------------
+   Source                                       #
+ -------------------------------------------------
+   popc.xyz                                   225
+   popc.xyz                                   225
+ -------------------------------------------------
+
+ -- Structure Generation --
+   0 popc.xyz: Form a regular layer with axis 4 - 13 along (0.000, 0.000, 1.000) on the plane region (2.000, 2.000, 45.000) to (2.000, 100.000, 45.000) and (100.000, 2.000, 45.000).
+   1 popc.xyz: Form a regular layer with axis 4 - 13 along (0.000, 0.000, -1.000) on the plane region (2.000, 2.000, 95.000) to (2.000, 100.000, 95.000) and (100.000, 2.000, 95.000).
+
+ -- External Commands --
+gromacs4abc-1.py $inp$ system.gro 100 100 130
+gmx_d grompp -quiet -c system.gro -f min.mdp -p system.top -o system-min.tpr  1>nul 2>nul
+gmx_d mdrun -quiet -deffnm system-min  1>nul 2>nul
+gromacs4abc-2.py system-min.gro system-min.log $out$
+rm -rf system.gro system-min.gro system-min.log system-min.tpr system-min.trr system-min.edr mdout.mdp step*.pdb
+
+ -- Lego Optimization --
+Will perform at most 20 calculations.
+NO coarse optimization will be done for each generated structure.
+===============================================================
+    #          Energy       Time   State
+===============================================================
+    0 456597.14725526        327   Succeed
+    1 238637.08948209        359   Succeed
+    2 335209.81237211        489   Succeed
+    3 206661.71062183        566   Succeed
+    4 385085.38624836        516   Succeed
+    5 235234.50313506        531   Succeed
+    6 311410.39698756        542   Succeed
+    7 347830.96882874        548   Succeed
+    8 346143.35173729        515   Succeed
+    9 -172236.30061947        404   Succeed
+   10 398318.43670418        342   Succeed
+   11 340298.32609015        314   Succeed
+   12 -299337.79289816        325   Succeed
+   13 371641.80638862        323   Succeed
+   14 -112365.63084359        333   Succeed
+   15 -208448.97134582        317   Succeed
+   16 295338.06138931        402   Succeed
+   17 276313.28488130        340   Succeed
+   18 522411.33932621        411   Succeed
+   19 299668.94969039        254   Succeed
+===============================================================
+All the calculations are finished!
+
+Reordered from low to high energy:
+===============================================================
+    #          Energy
+===============================================================
+   12 -299337.79289816
+   15 -208448.97134582
+    9 -172236.30061947
+   14 -112365.63084359
+    3 206661.71062183
+    5 235234.50313506
+    1 238637.08948209
+   17 276313.28488130
+   16 295338.06138931
+   19 299668.94969039
+    6 311410.39698756
+    2 335209.81237211
+   11 340298.32609015
+    8 346143.35173729
+    7 347830.96882874
+   13 371641.80638862
+    4 385085.38624836
+   10 398318.43670418
+    0 456597.14725526
+   18 522411.33932621
+===============================================================
+
+===== (^ _ ^) =====
+Normal termination at Wed May 22 19:03:27 2019.
+Total run time: 8166 seconds = 0 days 2 hours 16 minutes 6 seconds.

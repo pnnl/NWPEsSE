@@ -1,0 +1,13 @@
+ni38co36-micelle    # Result file name
+ni38co36.cluster    # Cluster file name
+300                # Maximal number of calculations
+>>>>
+pos 0. 0. 0. 0. 0. 0.
+micelle 1 2 0 0 0 5 5 5
+>>>>
+cp $inp$ $out$
+lammps4abc-1.py $inp$ data.abc -20. +20. -20. 20. -20. +20. 0 0 0 3 Ni C O
+set NUMBER_OF_PROCESSORS=8 & lmp_serial < in.abc > out.abc 2>nul
+lammps4abc-2.py dump.abc.xyz out.abc $out$ 3 Ni C O
+rm -rf log.cite log.lammps data.abc out.abc dump.abc.xyz
+>>>>

@@ -1,0 +1,12 @@
+#include "gromacs_tops/ffG43A1-S3.itp"
+#include "gromacs_tops/lipids_43A1-S3.itp"
+#include "gromacs_tops/spce.itp"
+
+[ system ]
+POPC in water
+
+[molecules]
+POPC  450
+
+
+

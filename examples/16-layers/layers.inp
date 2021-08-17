@@ -1,0 +1,14 @@
+layers            # Result file name
+layers.cluster    # Cluster file name
+20                # Maximal number of calculations
+>>>>
+layer 4 13 0 0 0  1 2 2 45 2 100 45 100 2 45
+layer 4 13 0 0 0 -1 2 2 95 2 100 95 100 2 95
+>>>>
+gromacs4abc-1.py $inp$ system.gro 100 100 130
+gmx_d grompp -quiet -c system.gro -f min.mdp -p system.top -o system-min.tpr  1>nul 2>nul
+gmx_d mdrun -quiet -deffnm system-min  1>nul 2>nul
+gromacs4abc-2.py system-min.gro system-min.log $out$
+rm -rf system.gro system-min.gro system-min.log system-min.tpr system-min.trr system-min.edr mdout.mdp step*.pdb
+>>>>
+N

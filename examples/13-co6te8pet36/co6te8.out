@@ -1,0 +1,285 @@
+                                                      
+       * * * * * * * * * * * * * * * * * *            
+      *       ____   _____ _           _   *          
+     *  /\   |  _ \ / ____| |         | |  * * * * *  
+    *  /  \  | |_) | |    | |_   _ ___| |_ ___ _ __  *
+   *  / /\ \ |  _ <| |    | | | | / __| __/ _ \ '__| *
+  *  / ____ \| |_) | |____| | |_| \__ \ ||  __/ |  *  
+  * /_/    \_\____/ \_____|_|\__,_|___/\__\___|_|  *  
+  *                                                *  
+  * * * * * * * * * * * * * * * * * * * * * * * * *   
+                                                      
+
+ABCluster 2.1
+Specific flag:  official version
+Platform:       LINUX/UNIX
+Compiled by:    zhan055@mitcluster3.pnl.gov
+Compiling date: Mar 26 2019 22:46:17
+C++ compiler:   g++ (GCC) 8.1.0
+C++ options:    -O3 -Os -fno-exceptions --std=c++0x -fopenmp  
+
+Contributors:
+Jun Zhang(University of Cologne): Design and coding.
+
+For any suggestions, comments, and questions on the theory and
+implementation of ABCluster, please feel free to contact:
+
+Dr. Jun Zhang, ZhangJunQcc@gmail.com
+
+If you used this program in your work, please cite these references:
+
+[1] Zhang, J.; Dolg, M.; ABCluster: The Artificial Bee Colony Algorithm for
+    Cluster Global Optimization. Phys. Chem. Chem. Phys. 2015, 17, 24173-24181.
+[2] Zhang, J.; Dolg, M.; Global Optimization of Clusters of Rigid Molecules by the
+    Artificial Bee Colony Algorithm. Phys. Chem. Chem. Phys. 2016, 18, 3003-3010.
+
+Program starts at Thu May 23 13:21:56 2019.
+Command line: " ../isomer co6te8.inp "
+Process ID:   26500
+Run by:       zhan055@compute-0-0.local
+Available CPU cores:    8
+Read "OMP_NUM_THREADS": Unset
+
+Random number testing (integers): 488158336...1376260012
+Random number testing (fractals): 0.05728763...0.01041430
+
+ -- Input/Output Parameters --
+Input file name:       co6te8.inp
+Result file directory: co6te8-LM
+Nodes file name:       *
+
+ -- Cluster Information --
+    Symbol          #
+        Co          6
+        Te          8
+       Sum         14
+
+ -- Structure Generation --
+Initializing cube 4x4x4 structures...
+
+ -- External Commands --
+cp $inp$ $xxx$.xyz
+../xtb/bin/xtb $xxx$.xyz -gfn 1 -o > $xxx$.out
+energy=`awk 'NR==2{print $3}' xtbopt.xyz` ; sed -i "2c ${energy}" xtbopt.xyz
+mv xtbopt.xyz $out$
+rm $xxx$.xyz $xxx$.out charges wbo xtbopt.log xtbrestart
+
+ -- Parallelization --
+No parallelization.
+
+ -- Isomer Optimization --
+Will perform at most 100 calculations.
+===============================================================
+    #          Energy       Time   State
+===============================================================
+    0    -51.75618671          4   Succeed
+    1    -51.83149891          9   Succeed
+    2    -51.78256905          7   Succeed
+    3    -51.77646959          8   Succeed
+    4    -51.72895132          3   Succeed
+    5    -51.76677177          9   Succeed
+    6    -51.71062253         10   Succeed
+    7    -51.71141793          7   Succeed
+    8    -51.76298754          4   Succeed
+    9    -51.81074121          7   Succeed
+   10    -51.75441041          8   Succeed
+   11    -51.72820844          8   Succeed
+   12    -51.71879216          8   Succeed
+   13    -51.79746022          8   Succeed
+   14    -51.73310401          9   Succeed
+   15    -51.79110632          8   Succeed
+   16    -51.81219036          5   Succeed
+   17    -51.70862778          7   Succeed
+   18    -51.76770053         11   Succeed
+   19    -51.42858071          5   Succeed
+   20    -51.76631614          8   Succeed
+   21    -51.72019783          5   Succeed
+   22    -51.75193831          7   Succeed
+   23    -51.81083253          7   Succeed
+   24    -51.79183037         13   Succeed
+   25    -51.74004216          6   Succeed
+   26    -51.82522693         10   Succeed
+   27    -51.75778995          6   Succeed
+   28    -51.71498404          7   Succeed
+   29    -51.69128211          7   Succeed
+   30    -51.81441716         10   Succeed
+   31    -51.82984076          7   Succeed
+   32    -51.74757854          9   Succeed
+   33    -51.77988412          3   Succeed
+   34    -51.80303406         14   Succeed
+   35    -51.66351712          8   Succeed
+   36    -51.68637202          8   Succeed
+   37    -51.77759742         12   Succeed
+   38    -51.78925246          8   Succeed
+   39    -51.72323320          9   Succeed
+   40    -51.86759260          8   Succeed
+   41    -51.75548433          9   Succeed
+   42    -51.78859304          8   Succeed
+   43    -51.74678348          8   Succeed
+   44    -51.74033841          4   Succeed
+   45    -51.66444535         17   Succeed
+   46    -51.79202863         14   Succeed
+   47    -51.79201208          5   Succeed
+   48    -51.75310646          7   Succeed
+   49    -51.80888944          7   Succeed
+   50    -51.80990757         10   Succeed
+   51    -51.75690938          9   Succeed
+   52    -51.79043167          8   Succeed
+   53    -51.75373157          7   Succeed
+   54    -51.76405948          6   Succeed
+   55    -51.80462521          6   Succeed
+   56    -51.73733584         12   Succeed
+   57    -51.78328192          9   Succeed
+   58    -51.73492474          7   Succeed
+   59    -51.69025357         18   Succeed
+   60    -51.74734337         17   Succeed
+   61    -51.79514479          8   Succeed
+   62    -51.78818106          6   Succeed
+   63    -51.79264080          7   Succeed
+   64    -51.75899497          5   Succeed
+   65    -51.77270341          5   Succeed
+   66    -51.75677247          5   Succeed
+   67    -51.79014960          7   Succeed
+   68    -51.78295724          4   Succeed
+   69    -51.83076898          7   Succeed
+   70    -51.74676287          9   Succeed
+   71    -51.78193285          9   Succeed
+   72    -51.76640779          7   Succeed
+   73    -51.82567256         11   Succeed
+   74    -51.66598660          5   Succeed
+   75    -51.78010220          5   Succeed
+   76    -51.79286982          5   Succeed
+   77    -51.80869322          5   Succeed
+   78    -51.78522817          8   Succeed
+   79    -51.78240602          8   Succeed
+   80    -51.73496804          7   Succeed
+   81    -51.71041034         17   Succeed
+   82    -51.78753677         10   Succeed
+   83    -51.80808241         14   Succeed
+   84    -51.77214837          7   Succeed
+   85    -51.81071279          7   Succeed
+   86    -51.64699047         18   Succeed
+   87    -51.70781833          8   Succeed
+   88    -51.78318298          4   Succeed
+   89    -51.82983967          7   Succeed
+   90    -51.83493705          6   Succeed
+   91    -51.70750390          8   Succeed
+   92    -51.79120839          5   Succeed
+   93    -51.68188728          8   Succeed
+   94    -51.78558033          8   Succeed
+   95    -51.68431539          7   Succeed
+   96    -51.76135448          7   Succeed
+   97    -51.68305389          8   Succeed
+   98    -51.72824053          4   Succeed
+   99    -51.71796414          7   Succeed
+===============================================================
+All the calculations are finished!
+
+Reordered from low to high energy:
+===============================================================
+    #          Energy
+===============================================================
+   40    -51.86759260
+   90    -51.83493705
+    1    -51.83149891
+   69    -51.83076898
+   89    -51.82983967
+   73    -51.82567256
+   26    -51.82522693
+   30    -51.81441716
+   16    -51.81219036
+   23    -51.81083253
+    9    -51.81074121
+   85    -51.81071279
+   50    -51.80990757
+   49    -51.80888944
+   77    -51.80869322
+   83    -51.80808241
+   55    -51.80462521
+   34    -51.80303406
+   13    -51.79746022
+   61    -51.79514479
+   76    -51.79286982
+   63    -51.79264080
+   46    -51.79202863
+   47    -51.79201208
+   24    -51.79183037
+   92    -51.79120839
+   15    -51.79110632
+   52    -51.79043167
+   67    -51.79014960
+   38    -51.78925246
+   42    -51.78859304
+   62    -51.78818106
+   82    -51.78753677
+   94    -51.78558033
+   78    -51.78522817
+   57    -51.78328192
+   88    -51.78318298
+   68    -51.78295724
+    2    -51.78256905
+   79    -51.78240602
+   71    -51.78193285
+   75    -51.78010220
+   33    -51.77988412
+   37    -51.77759742
+    3    -51.77646959
+   65    -51.77270341
+   84    -51.77214837
+   18    -51.76770053
+    5    -51.76677177
+   72    -51.76640779
+   20    -51.76631614
+   54    -51.76405948
+    8    -51.76298754
+   96    -51.76135448
+   64    -51.75899497
+   27    -51.75778995
+   51    -51.75690938
+   66    -51.75677247
+    0    -51.75618671
+   41    -51.75548433
+   10    -51.75441041
+   53    -51.75373157
+   48    -51.75310646
+   22    -51.75193831
+   32    -51.74757854
+   60    -51.74734337
+   43    -51.74678348
+   70    -51.74676287
+   44    -51.74033841
+   25    -51.74004216
+   56    -51.73733584
+   80    -51.73496804
+   58    -51.73492474
+   14    -51.73310401
+    4    -51.72895132
+   98    -51.72824053
+   11    -51.72820844
+   39    -51.72323320
+   21    -51.72019783
+   12    -51.71879216
+   99    -51.71796414
+   28    -51.71498404
+    7    -51.71141793
+    6    -51.71062253
+   81    -51.71041034
+   17    -51.70862778
+   87    -51.70781833
+   91    -51.70750390
+   29    -51.69128211
+   59    -51.69025357
+   36    -51.68637202
+   95    -51.68431539
+   97    -51.68305389
+   93    -51.68188728
+   74    -51.66598660
+   45    -51.66444535
+   35    -51.66351712
+   86    -51.64699047
+   19    -51.42858071
+===============================================================
+
+===== (^ _ ^) =====
+Normal termination at Thu May 23 13:35:39 2019.
+Total run time: 823 seconds = 0 days 0 hours 13 minutes 43 seconds.

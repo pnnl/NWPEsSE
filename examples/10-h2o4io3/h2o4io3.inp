@@ -1,0 +1,11 @@
+h2o4io3             # Result file name
+h2o4io3.cluster     # Cluster file name
+50                  # Maximal number of calculations
+>>>>
+inbox 0. 0. 0. 7. 7. 7.
+inbox 0. 0. 0. 7. 7. 7.
+>>>>
+./xyz2gaussian optfile $inp$ > $xxx$.gjf
+module load gaussian/g09e01 ; g09 < $xxx$.gjf > $xxx$.log 2>/dev/null
+./gaussian2xyz $xxx$.log > $out$
+>>>>

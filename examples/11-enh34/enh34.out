@@ -1,0 +1,146 @@
+                                                      
+       * * * * * * * * * * * * * * * * * *            
+      *       ____   _____ _           _   *          
+     *  /\   |  _ \ / ____| |         | |  * * * * *  
+    *  /  \  | |_) | |    | |_   _ ___| |_ ___ _ __  *
+   *  / /\ \ |  _ <| |    | | | | / __| __/ _ \ '__| *
+  *  / ____ \| |_) | |____| | |_| \__ \ ||  __/ |  *  
+  * /_/    \_\____/ \_____|_|\__,_|___/\__\___|_|  *  
+  *                                                *  
+  * * * * * * * * * * * * * * * * * * * * * * * * *   
+                                                      
+
+ABCluster 2.1
+Specific flag:  official version
+Platform:       LINUX/UNIX
+Compiled by:    zhan055@mitcluster3.pnl.gov
+Compiling date: May 20 2019 21:10:31
+C++ compiler:   g++ (GCC) 8.1.0
+C++ options:    -O3 -Os -fno-exceptions --std=c++0x -fopenmp  
+
+Contributors:
+Jun Zhang(University of Cologne): Design and coding.
+
+For any suggestions, comments, and questions on the theory and
+implementation of ABCluster, please feel free to contact:
+
+Dr. Jun Zhang, ZhangJunQcc@gmail.com
+
+If you used this program in your work, please cite these references:
+
+[1] Zhang, J.; Dolg, M.; ABCluster: The Artificial Bee Colony Algorithm for
+    Cluster Global Optimization. Phys. Chem. Chem. Phys. 2015, 17, 24173-24181.
+[2] Zhang, J.; Dolg, M.; Global Optimization of Clusters of Rigid Molecules by the
+    Artificial Bee Colony Algorithm. Phys. Chem. Chem. Phys. 2016, 18, 3003-3010.
+
+Program starts at Wed May 22 02:55:15 2019.
+Command line: " ./lego enh34.inp "
+Process ID:   29914
+Run by:       pg5934@r3520
+Available CPU cores:    32
+Read "OMP_NUM_THREADS": 1
+
+Random number testing (integers): 414062636...1852083970
+Random number testing (fractals): 0.73424649...0.15083755
+
+ -- Input/Output Parameters --
+Input file name:       enh34.inp
+Cluster file name:     enh34.cluster
+Result file directory: enh34-LM
+
+ -- Cluster Components: from [ enh34.cluster ] --
+ -------------------------------------------------
+   Source                                       #
+ -------------------------------------------------
+   nh3.xyz                                      4
+ -------------------------------------------------
+
+ -- Structure Generation --
+   0 nh3.xyz: Distributed inside the box (0.000, 0.000, 0.000) - (4.000, 4.000, 4.000).
+
+ -- External Commands --
+../../xyz2gaussian optfile $inp$ > $xxx$.gjf
+g09 < $xxx$.gjf > $xxx$.log 2>/dev/null
+../../gaussian2xyz $xxx$.log > $out$
+
+ -- Lego Optimization --
+Will perform at most 40 calculations.
+A coarse optimization will be done for each generated structure.
+===============================================================
+    #          Energy       Time   State
+===============================================================
+    0   -226.21736980        193   Succeed
+    1   -226.21119754        908   Succeed
+    2   -226.21955370        465   Succeed
+    3   -226.21467738        167   Succeed
+    4   -226.21960756        214   Succeed
+    5   -226.21863999        248   Succeed
+    6   -226.22011178        340   Succeed
+    7   -226.21812091        374   Succeed
+    8   -226.21863914        355   Succeed
+    9   -226.21997690        296   Succeed
+   10   -226.21950915        215   Succeed
+   11   -226.22008945        370   Succeed
+   12   -226.22011199        305   Succeed
+   13   -226.21815058        191   Succeed
+   14   -226.21803114        168   Succeed
+   15   -226.21842321        302   Succeed
+   16   -226.20889475         52   Succeed
+   17   -226.21815739        283   Succeed
+   18   -226.21956235        255   Succeed
+   19   -226.20897572        210   Succeed
+   20   -226.21962417        359   Succeed
+   21   -226.21550135         89   Succeed
+   22   -226.21760392        288   Succeed
+   23   -226.21813930        215   Succeed
+   24   -226.21319089         61   Succeed
+   25   -226.20933709         75   Succeed
+   26   -226.21864084        278   Succeed
+   27   -226.20875622         62   Succeed
+   28   -226.21932861        265   Succeed
+   29   -226.22004971        309   Succeed
+   30   -226.20483759         85   Succeed
+   31   -226.21973193        346   Succeed
+   32   -226.21825268        416   Succeed
+   33   -226.22011265        290   Succeed
+   34   -226.21990083        414   Succeed
+   35   -226.22010631        289   Succeed
+   36   -226.21527074        115   Succeed
+   37   -226.21948690        297   Succeed
+   38   -226.21792380         95   Succeed
+   39   -226.22010722        366   Succeed
+===============================================================
+All the calculations are finished!
+
+Reordered from low to high energy:
+===============================================================
+    #          Energy
+===============================================================
+   39   -226.22010722
+   34   -226.21990083
+   31   -226.21973193
+   20   -226.21962417
+   10   -226.21950915
+   28   -226.21932861
+    8   -226.21863914
+   15   -226.21842321
+   32   -226.21825268
+   13   -226.21815058
+   14   -226.21803114
+   38   -226.21792380
+   22   -226.21760392
+    0   -226.21736980
+   21   -226.21550135
+   36   -226.21527074
+    3   -226.21467738
+   24   -226.21319089
+    1   -226.21119754
+   25   -226.20933709
+   19   -226.20897572
+   27   -226.20875622
+   30   -226.20483759
+===============================================================
+
+===== (^ _ ^) =====
+Normal termination at Wed May 22 05:52:20 2019.
+Total run time: 10625 seconds = 0 days 2 hours 57 minutes 5 seconds.

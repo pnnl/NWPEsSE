@@ -1,0 +1,11 @@
+co6te8         # Result file name
+Co 6 Te 8      # Symbols
+cube 4 4 4     # Structure types
+100            # Maximal number of calculations
+>>>>
+cp $inp$ $xxx$.xyz
+../xtb/bin/xtb $xxx$.xyz -gfn 1 -o > $xxx$.out
+energy=`awk 'NR==2{print $3}' xtbopt.xyz` ; sed -i "2c ${energy}" xtbopt.xyz
+mv xtbopt.xyz $out$
+rm $xxx$.xyz $xxx$.out charges wbo xtbopt.log xtbrestart
+>>>>

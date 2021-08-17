@@ -1,0 +1,174 @@
+                                                      
+       * * * * * * * * * * * * * * * * * *            
+      *       ____   _____ _           _   *          
+     *  /\   |  _ \ / ____| |         | |  * * * * *  
+    *  /  \  | |_) | |    | |_   _ ___| |_ ___ _ __  *
+   *  / /\ \ |  _ <| |    | | | | / __| __/ _ \ '__| *
+  *  / ____ \| |_) | |____| | |_| \__ \ ||  __/ |  *  
+  * /_/    \_\____/ \_____|_|\__,_|___/\__\___|_|  *  
+  *                                                *  
+  * * * * * * * * * * * * * * * * * * * * * * * * *   
+                                                      
+
+ABCluster 2.1
+Specific flag:  official version
+Platform:       LINUX/UNIX
+Compiled by:    zhan055@mitcluster3.pnl.gov
+Compiling date: May  3 2019 11:48:45
+C++ compiler:   g++ (GCC) 8.1.0
+C++ options:    -O3 -Os -fno-exceptions --std=c++0x -fopenmp  
+
+Contributors:
+Jun Zhang(University of Cologne): Design and coding.
+
+For any suggestions, comments, and questions on the theory and
+implementation of ABCluster, please feel free to contact:
+
+Dr. Jun Zhang, ZhangJunQcc@gmail.com
+
+If you used this program in your work, please cite these references:
+
+[1] Zhang, J.; Dolg, M.; ABCluster: The Artificial Bee Colony Algorithm for
+    Cluster Global Optimization. Phys. Chem. Chem. Phys. 2015, 17, 24173-24181.
+[2] Zhang, J.; Dolg, M.; Global Optimization of Clusters of Rigid Molecules by the
+    Artificial Bee Colony Algorithm. Phys. Chem. Chem. Phys. 2016, 18, 3003-3010.
+
+Program starts at Thu May  9 13:39:04 2019.
+Command line: " ../lego au8tio2110.inp "
+Process ID:   13333
+Run by:       zhan055@g587
+Available CPU cores:    16
+Read "OMP_NUM_THREADS": Unset
+
+Random number testing (integers): 2098670753...986613455
+Random number testing (fractals): 0.40074565...0.89242874
+
+ -- Input/Output Parameters --
+Input file name:       au8tio2110.inp
+Cluster file name:     au8tio2110.cluster
+Result file directory: au8tio2110-LM
+
+ -- Cluster Components: from [ au8tio2110.cluster ] --
+ -------------------------------------------------
+   Source                                       #
+ -------------------------------------------------
+   ./tio2110.xyz                                1
+   ./au.xyz                                     8
+ -------------------------------------------------
+
+ -- Structure Generation --
+   0 ./tio2110.xyz: Center fixed at position (9.455, 8.860, 0.000) with rotation (0.000, 0.000, 0.000).
+   1 ./au.xyz: Distributed inside the box (7.000, 5.000, 9.000) - (14.000, 12.000, 10.000).
+
+ -- External Commands --
+./cp2k4abcluster.sh $xxx$ $inp$ $out$
+
+ -- Lego Optimization --
+Will perform at most 50 calculations.
+A coarse optimization will be done for each generated structure.
+===============================================================
+    #          Energy       Time   State
+===============================================================
+    0 -13269.73461530       3542   Succeed
+    1 -13269.73337489       7229   Succeed
+    2 -13269.70230864       5345   Succeed
+    3 -13269.70863406       5076   Succeed
+    4 -13261.72680783      19896   Succeed
+    5 -13269.08000253      30562   Succeed
+    6 -13269.39505615      12055   Succeed
+    7 -13269.73428919       5541   Succeed
+    8 -13269.67202401       4331   Succeed
+    9 -13269.72190992       3433   Succeed
+   10 -13263.90737911      17818   Succeed
+   11 -13269.73422754       6440   Succeed
+   12 -13269.72611968       5275   Succeed
+   13 -13269.72194418       4583   Succeed
+   14 -13269.72810188       4804   Succeed
+   15 -13269.72360851       5709   Succeed
+   16 -13269.72521156       5969   Succeed
+   17 -13269.72579206       4291   Succeed
+   18 -13269.72634099       6438   Succeed
+   19 -13269.72613308       4010   Succeed
+   20 -13269.71816293       6007   Succeed
+   21 -13269.70751843       3654   Succeed
+   22 -13269.73549258       6419   Succeed
+   23 -13269.72687157       5590   Succeed
+   24 -13269.72775587       6799   Succeed
+   25 -13269.71807873       4815   Succeed
+   26 -13269.72249473       5887   Succeed
+   27 -13269.71681455       5931   Succeed
+   28 -13269.70666055       5285   Succeed
+   29 -13269.73172072       4208   Succeed
+   30 -13146.24963736      38415   Succeed
+   31 -13269.72389970       4427   Succeed
+   32 -13269.72596924       4796   Succeed
+   33 -13269.72290917       6868   Succeed
+   34 -13269.72258844       4346   Succeed
+   35 -13269.71527956       7943   Succeed
+   36 -13269.71861765       7085   Succeed
+   37 -13269.72643851       7452   Succeed
+   38 -13269.72876442       3847   Succeed
+   39 -13269.71428724       5586   Succeed
+   40 -13269.72307133       6534   Succeed
+   41 -13269.71613781       4935   Succeed
+   42 -13273.31373662       6014   Succeed
+   43 -13269.73490624       3381   Succeed
+   44 -13269.72197453       6382   Succeed
+   45 -13269.72278327       5225   Succeed
+   46 -13272.35620303       9003   Succeed
+   47 -13269.72295343       3935   Succeed
+   48 -13269.72643089       7446   Succeed
+   49 -13269.73926709       4094   Succeed
+===============================================================
+All the calculations are finished!
+
+Reordered from low to high energy:
+===============================================================
+    #          Energy
+===============================================================
+   42 -13273.31373662
+   46 -13272.35620303
+   49 -13269.73926709
+   22 -13269.73549258
+   43 -13269.73490624
+    0 -13269.73461530
+    7 -13269.73428919
+    1 -13269.73337489
+   29 -13269.73172072
+   38 -13269.72876442
+   14 -13269.72810188
+   24 -13269.72775587
+   23 -13269.72687157
+   48 -13269.72643089
+   12 -13269.72611968
+   32 -13269.72596924
+   17 -13269.72579206
+   16 -13269.72521156
+   31 -13269.72389970
+   15 -13269.72360851
+   40 -13269.72307133
+   47 -13269.72295343
+   45 -13269.72278327
+   34 -13269.72258844
+   44 -13269.72197453
+   36 -13269.71861765
+   25 -13269.71807873
+   27 -13269.71681455
+   41 -13269.71613781
+   35 -13269.71527956
+   39 -13269.71428724
+    3 -13269.70863406
+   21 -13269.70751843
+   28 -13269.70666055
+    2 -13269.70230864
+    8 -13269.67202401
+    6 -13269.39505615
+    5 -13269.08000253
+   10 -13263.90737911
+    4 -13261.72680783
+   30 -13146.24963736
+===============================================================
+
+===== (^ _ ^) =====
+Normal termination at Mon May 13 18:56:40 2019.
+Total run time: 364656 seconds = 4 days 5 hours 17 minutes 36 seconds.

@@ -1,0 +1,286 @@
+                                                      
+       * * * * * * * * * * * * * * * * * *            
+      *       ____   _____ _           _   *          
+     *  /\   |  _ \ / ____| |         | |  * * * * *  
+    *  /  \  | |_) | |    | |_   _ ___| |_ ___ _ __  *
+   *  / /\ \ |  _ <| |    | | | | / __| __/ _ \ '__| *
+  *  / ____ \| |_) | |____| | |_| \__ \ ||  __/ |  *  
+  * /_/    \_\____/ \_____|_|\__,_|___/\__\___|_|  *  
+  *                                                *  
+  * * * * * * * * * * * * * * * * * * * * * * * * *   
+                                                      
+
+ABCluster 2.1
+Specific flag:  official version
+Platform:       LINUX/UNIX
+Compiled by:    zhan055@mitcluster3.pnl.gov
+Compiling date: Apr 26 2019 09:02:24
+C++ compiler:   g++ (GCC) 8.1.0
+C++ options:    -O3 -Os -fno-exceptions --std=c++0x -fopenmp  
+
+Contributors:
+Jun Zhang(University of Cologne): Design and coding.
+
+For any suggestions, comments, and questions on the theory and
+implementation of ABCluster, please feel free to contact:
+
+Dr. Jun Zhang, ZhangJunQcc@gmail.com
+
+If you used this program in your work, please cite these references:
+
+[1] Zhang, J.; Dolg, M.; ABCluster: The Artificial Bee Colony Algorithm for
+    Cluster Global Optimization. Phys. Chem. Chem. Phys. 2015, 17, 24173-24181.
+[2] Zhang, J.; Dolg, M.; Global Optimization of Clusters of Rigid Molecules by the
+    Artificial Bee Colony Algorithm. Phys. Chem. Chem. Phys. 2016, 18, 3003-3010.
+
+Program starts at Fri Apr 26 12:59:29 2019.
+Command line: " ../../lego co6te8pet36.inp "
+Process ID:   11317
+Run by:       zhan055@compute-0-46.local
+Available CPU cores:    8
+Read "OMP_NUM_THREADS": Unset
+
+Random number testing (integers): 1656359728...1533091678
+Random number testing (fractals): 0.80369406...0.30024953
+
+ -- Input/Output Parameters --
+Input file name:       co6te8pet36.inp
+Cluster file name:     co6te8pet36.cluster
+Result file directory: co6te8pet36-LM
+
+ -- Cluster Components: from [ co6te8pet36.cluster ] --
+ -------------------------------------------------
+   Source                                       #
+ -------------------------------------------------
+   co6te8.xyz                                   1
+   pet3.xyz                                     6
+ -------------------------------------------------
+
+ -- Structure Generation --
+   0 co6te8.xyz: Center fixed at position (0.000, 0.000, 0.000) with rotation (0.000, 0.000, 0.000).
+   1 pet3.xyz: Form micelle-like structure with axis (1, 1) - (4, 22) along the normal centered at (0.000, 0.000, 0.000), core radius (4.000, 4.000, 4.000).
+
+ -- External Commands --
+cp $inp$ $xxx$.xyz
+../../xtb/bin/xtb $xxx$.xyz -gfn 1 -o > $xxx$.out
+energy=`awk 'NR==2{print $3}' xtbopt.xyz` ; sed -i "2c ${energy}" xtbopt.xyz
+mv xtbopt.xyz $out$
+rm $xxx$.xyz $xxx$.out charges wbo xtbopt.log xtbrestart
+
+ -- Lego Optimization --
+Will perform at most 100 calculations.
+===============================================================
+    #          Energy       Time   State
+===============================================================
+    0   -192.66264592        158   Succeed
+    1   -192.66414220        118   Succeed
+    2   -192.64024710        112   Succeed
+    3   -192.68814600        137   Succeed
+    4   -192.73137053        198   Succeed
+    5   -192.65936027        150   Succeed
+    6   -192.66081946        212   Succeed
+    7   -192.72770033        175   Succeed
+    8   -192.73152803        116   Succeed
+    9   -192.73174098        136   Succeed
+   10   -192.73008958        180   Succeed
+   11   -192.72772920        176   Succeed
+   12   -192.69905020        138   Succeed
+   13   -192.73399958        221   Succeed
+   14   -192.73529833        195   Succeed
+   15   -192.73156785        193   Succeed
+   16   -192.73451645        175   Succeed
+   17   -192.73140301        118   Succeed
+   18   -192.68730739        114   Succeed
+   19   -192.73077873        218   Succeed
+   20   -192.73059374        133   Succeed
+   21   -192.73090028        153   Succeed
+   22   -192.72850746        160   Succeed
+   23   -192.72693183        134   Succeed
+   24   -192.73293690        175   Succeed
+   25   -192.73081328        249   Succeed
+   26   -192.73501846        206   Succeed
+   27   -192.73266407        155   Succeed
+   28   -192.73187170        159   Succeed
+   29   -192.73175898        131   Succeed
+   30   -192.68729973        118   Succeed
+   31   -192.73144519        200   Succeed
+   32   -192.73085720        132   Succeed
+   33   -192.73446200        160   Succeed
+   34   -192.68737909        102   Succeed
+   35   -192.72834372        179   Succeed
+   36   -192.73024445        184   Succeed
+   37   -192.73159374        206   Succeed
+   38   -192.73220601        157   Succeed
+   39   -192.73161718        177   Succeed
+   40   -192.68735460        121   Succeed
+   41   -192.73186260        154   Succeed
+   42   -192.73163582        221   Succeed
+   43   -192.73176532        235   Succeed
+   44   -192.73520693        195   Succeed
+   45   -192.73446533        161   Succeed
+   46   -192.73182470        212   Succeed
+   47   -192.69342019        138   Succeed
+   48   -192.66882468        166   Succeed
+   49   -192.72973938        156   Succeed
+   50   -192.73561783        138   Succeed
+   51   -192.73080321        246   Succeed
+   52   -192.72917156        161   Succeed
+   53   -192.65382617        203   Succeed
+   54   -192.73163196        196   Succeed
+   55   -192.73553905        118   Succeed
+   56   -192.72825645         97   Succeed
+   57   -192.73554984        197   Succeed
+   58   -192.73336709        251   Succeed
+   59   -192.66171775        214   Succeed
+   60   -192.72729594        139   Succeed
+   61   -192.54515970        313   Succeed
+   62   -192.73072320        153   Succeed
+   63   -192.65933531        141   Succeed
+   64   -192.73163732        172   Succeed
+   65   -192.73682085        155   Succeed
+   66   -192.73210581        249   Succeed
+   67   -192.66999699        204   Succeed
+   68   -192.66725299        118   Succeed
+   69   -192.73307120        245   Succeed
+   70   -192.72950614        160   Succeed
+   71   -192.72950820        161   Succeed
+   72   -192.73097715        175   Succeed
+   73   -192.72948267        162   Succeed
+   74   -192.72986612        194   Succeed
+   75   -192.73525669        183   Succeed
+   76   -192.72825182        137   Succeed
+   77   -192.73447067        162   Succeed
+   78   -192.73121343        200   Succeed
+   79   -192.73164278        221   Succeed
+   80   -192.73177083        250   Succeed
+   81   -192.73009459        162   Succeed
+   82   -192.73135945        249   Succeed
+   83   -192.73160861        200   Succeed
+   84   -192.73161378        169   Succeed
+   85   -192.68166493        138   Succeed
+   86   -192.64075707        179   Succeed
+   87   -192.68736303        100   Succeed
+   88   -192.73437940        251   Succeed
+   89   -192.73009575        152   Succeed
+   90   -192.73392263        249   Succeed
+   91   -192.73282690        248   Succeed
+   92   -192.73235907        200   Succeed
+   93   -192.73526715        249   Succeed
+   94   -192.69583777        162   Succeed
+   95   -192.65933663        144   Succeed
+   96   -192.73126047        176   Succeed
+   97   -192.72892693        208   Succeed
+   98   -192.73273279        153   Succeed
+   99   -192.73499330        249   Succeed
+===============================================================
+All the calculations are finished!
+
+Reordered from low to high energy:
+===============================================================
+    #          Energy
+===============================================================
+   65   -192.73682085
+   50   -192.73561783
+   57   -192.73554984
+   55   -192.73553905
+   14   -192.73529833
+   93   -192.73526715
+   75   -192.73525669
+   44   -192.73520693
+   26   -192.73501846
+   99   -192.73499330
+   16   -192.73451645
+   77   -192.73447067
+   45   -192.73446533
+   33   -192.73446200
+   88   -192.73437940
+   13   -192.73399958
+   90   -192.73392263
+   58   -192.73336709
+   69   -192.73307120
+   24   -192.73293690
+   91   -192.73282690
+   98   -192.73273279
+   27   -192.73266407
+   92   -192.73235907
+   38   -192.73220601
+   66   -192.73210581
+   28   -192.73187170
+   41   -192.73186260
+   46   -192.73182470
+   80   -192.73177083
+   43   -192.73176532
+   29   -192.73175898
+    9   -192.73174098
+   79   -192.73164278
+   64   -192.73163732
+   42   -192.73163582
+   54   -192.73163196
+   39   -192.73161718
+   84   -192.73161378
+   83   -192.73160861
+   37   -192.73159374
+   15   -192.73156785
+    8   -192.73152803
+   31   -192.73144519
+   17   -192.73140301
+    4   -192.73137053
+   82   -192.73135945
+   96   -192.73126047
+   78   -192.73121343
+   72   -192.73097715
+   21   -192.73090028
+   32   -192.73085720
+   25   -192.73081328
+   51   -192.73080321
+   19   -192.73077873
+   62   -192.73072320
+   20   -192.73059374
+   36   -192.73024445
+   89   -192.73009575
+   81   -192.73009459
+   10   -192.73008958
+   74   -192.72986612
+   49   -192.72973938
+   71   -192.72950820
+   70   -192.72950614
+   73   -192.72948267
+   52   -192.72917156
+   97   -192.72892693
+   22   -192.72850746
+   35   -192.72834372
+   56   -192.72825645
+   76   -192.72825182
+   11   -192.72772920
+    7   -192.72770033
+   60   -192.72729594
+   23   -192.72693183
+   12   -192.69905020
+   94   -192.69583777
+   47   -192.69342019
+    3   -192.68814600
+   34   -192.68737909
+   87   -192.68736303
+   40   -192.68735460
+   18   -192.68730739
+   30   -192.68729973
+   85   -192.68166493
+   67   -192.66999699
+   48   -192.66882468
+   68   -192.66725299
+    1   -192.66414220
+    0   -192.66264592
+   59   -192.66171775
+    6   -192.66081946
+    5   -192.65936027
+   95   -192.65933663
+   63   -192.65933531
+   53   -192.65382617
+   86   -192.64075707
+    2   -192.64024710
+   61   -192.54515970
+===============================================================
+
+===== (^ _ ^) =====
+Normal termination at Fri Apr 26 17:53:11 2019.
+Total run time: 17622 seconds = 0 days 4 hours 53 minutes 42 seconds.

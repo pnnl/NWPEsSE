@@ -1,0 +1,14 @@
+reversedmicelle          # Result file name
+reversedmicelle.cluster  # Cluster file name
+20                       # Maximal number of calculations
+>>>>
+micelle 4 13 50 50 50 15 8 8
+insphere 50 50 50 14.5 7.5 7.5
+>>>>
+gromacs4abc-1.py $inp$ system.gro 100 100 100
+gmx_d grompp -quiet -c system.gro -f min.mdp -p system.top -o system-min.tpr  1>nul 2>nul
+gmx_d mdrun -quiet -deffnm system-min  1>nul 2>nul
+gromacs4abc-2.py system-min.gro system-min.log $out$
+rm -rf system.gro system-min.gro system-min.log system-min.tpr system-min.trr system-min.edr mdout.mdp step*.pdb
+>>>>
+N

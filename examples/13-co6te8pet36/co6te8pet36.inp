@@ -1,0 +1,16 @@
+qd              # Result file name
+qd.cluster      # Cluster file name
+100             # Maximal number of calculations
+>>>>
+pos 0 0 0 0 0 0
+micelle 1 1 4 22 0 0 0 4 4 4
+>>>>
+cp $inp$ $xxx$.xyz
+../../xtb/bin/xtb $xxx$.xyz -gfn 1 -o > $xxx$.out
+energy=`awk 'NR==2{print $3}' xtbopt.xyz` ; sed -i "2c ${energy}" xtbopt.xyz
+mv xtbopt.xyz $out$
+rm $xxx$.xyz $xxx$.out charges wbo xtbopt.log xtbrestart
+>>>>
+
+
+

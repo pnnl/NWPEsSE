@@ -1,0 +1,181 @@
+                                                      
+       * * * * * * * * * * * * * * * * * *            
+      *       ____   _____ _           _   *          
+     *  /\   |  _ \ / ____| |         | |  * * * * *  
+    *  /  \  | |_) | |    | |_   _ ___| |_ ___ _ __  *
+   *  / /\ \ |  _ <| |    | | | | / __| __/ _ \ '__| *
+  *  / ____ \| |_) | |____| | |_| \__ \ ||  __/ |  *  
+  * /_/    \_\____/ \_____|_|\__,_|___/\__\___|_|  *  
+  *                                                *  
+  * * * * * * * * * * * * * * * * * * * * * * * * *   
+                                                      
+
+ABCluster 2.1
+Specific flag:  official version
+Platform:       LINUX/UNIX
+Compiled by:    zhan055@mitcluster3.pnl.gov
+Compiling date: May 20 2019 21:10:31
+C++ compiler:   g++ (GCC) 8.1.0
+C++ options:    -O3 -Os -fno-exceptions --std=c++0x -fopenmp  
+
+Contributors:
+Jun Zhang(University of Cologne): Design and coding.
+
+For any suggestions, comments, and questions on the theory and
+implementation of ABCluster, please feel free to contact:
+
+Dr. Jun Zhang, ZhangJunQcc@gmail.com
+
+If you used this program in your work, please cite these references:
+
+[1] Zhang, J.; Dolg, M.; ABCluster: The Artificial Bee Colony Algorithm for
+    Cluster Global Optimization. Phys. Chem. Chem. Phys. 2015, 17, 24173-24181.
+[2] Zhang, J.; Dolg, M.; Global Optimization of Clusters of Rigid Molecules by the
+    Artificial Bee Colony Algorithm. Phys. Chem. Chem. Phys. 2016, 18, 3003-3010.
+
+Program starts at Thu May 23 07:34:12 2019.
+Command line: " ./lego h2o4io3.inp "
+Process ID:   23075
+Run by:       pg5934@r3287
+Available CPU cores:    32
+Read "OMP_NUM_THREADS": 1
+
+Random number testing (integers): 1253793348...1226662509
+Random number testing (fractals): 0.13167383...0.96690091
+
+ -- Input/Output Parameters --
+Input file name:       h2o4io3.inp
+Cluster file name:     h2o4io3.cluster
+Result file directory: h2o4io3-LM
+
+ -- Cluster Components: from [ h2o4io3.cluster ] --
+ -------------------------------------------------
+   Source                                       #
+ -------------------------------------------------
+   h2o.xyz                                      4
+   io3.xyz                                      1
+ -------------------------------------------------
+
+ -- Structure Generation --
+   0 h2o.xyz: Distributed inside the box (0.000, 0.000, 0.000) - (7.000, 7.000, 7.000).
+   1 io3.xyz: Distributed inside the box (0.000, 0.000, 0.000) - (7.000, 7.000, 7.000).
+
+ -- External Commands --
+./xyz2gaussian optfile $inp$ > $xxx$.gjf
+module load gaussian/g09e01 ; g09 < $xxx$.gjf > $xxx$.log 2>/dev/null
+./gaussian2xyz $xxx$.log > $out$
+
+ -- Lego Optimization --
+Will perform at most 50 calculations.
+A coarse optimization will be done for each generated structure.
+===============================================================
+    #          Energy       Time   State
+===============================================================
+    0  -7450.68954388        112   Succeed
+    1  -7450.78028309        545   Succeed
+    2  -7450.72430525         79   Succeed
+    3  -7450.78346546        496   Succeed
+    4  -7450.72971563        134   Succeed
+    5  -7450.73722746        118   Succeed
+    6  -7450.76571201        190   Succeed
+    7  -7450.77106825        541   Succeed
+    8  -7450.77627975        453   Succeed
+    9  -7450.77825853        621   Succeed
+   10  -7450.78388999        532   Succeed
+   11  -7450.77797232        493   Succeed
+   12  -7450.77777981        516   Succeed
+   13  -7450.78710440        475   Succeed
+   14  -7450.79459194        828   Succeed
+   15  -7450.78745180        490   Succeed
+   16  -7450.79021089        536   Succeed
+   17  -7450.77593248        427   Succeed
+   18  -7450.76614329        133   Succeed
+   19  -7450.79004772        520   Succeed
+   20  -7450.75528833        230   Succeed
+   21  -7450.79196832        567   Succeed
+   22  -7450.78156376        700   Succeed
+   23  -7450.77797834        675   Succeed
+   24  -7450.73372391        686   Succeed
+   25  -7450.78807810        510   Succeed
+   26  -7450.74456394        125   Succeed
+   27  -7450.71673364        234   Succeed
+   28  -7450.77047116        541   Succeed
+   29  -7450.72681323         62   Succeed
+   30  -7450.78048291        558   Succeed
+   31  -7450.78599413        763   Succeed
+   32  -7450.79277832        502   Succeed
+   33  -7450.74567153        472   Succeed
+   34  -7450.77937450        489   Succeed
+   35  -7450.77148819        538   Succeed
+   36  -7450.77635815        557   Succeed
+   37  -7450.74919621        163   Succeed
+   38  -7450.79070065        720   Succeed
+   39  -7450.78485196        565   Succeed
+   40  -7450.76896747        622   Succeed
+   41  -7450.79461219        438   Succeed
+   42  -7450.75268206        176   Succeed
+   43  -7450.78627863        626   Succeed
+   44  -7450.71070055         79   Succeed
+   45  -7450.75903619        409   Succeed
+   46  -7450.70322613        119   Succeed
+   47  -7450.77943190        301   Succeed
+   48  -7450.77121041        306   Succeed
+   49  -7450.74717661        121   Succeed
+===============================================================
+All the calculations are finished!
+
+Reordered from low to high energy:
+===============================================================
+    #          Energy
+===============================================================
+   41  -7450.79461219
+   32  -7450.79277832
+   21  -7450.79196832
+   38  -7450.79070065
+   16  -7450.79021089
+   19  -7450.79004772
+   25  -7450.78807810
+   15  -7450.78745180
+   13  -7450.78710440
+   43  -7450.78627863
+   31  -7450.78599413
+   39  -7450.78485196
+   10  -7450.78388999
+    3  -7450.78346546
+   22  -7450.78156376
+   30  -7450.78048291
+    1  -7450.78028309
+   47  -7450.77943190
+    9  -7450.77825853
+   11  -7450.77797232
+   12  -7450.77777981
+   36  -7450.77635815
+   17  -7450.77593248
+   35  -7450.77148819
+   48  -7450.77121041
+    7  -7450.77106825
+   28  -7450.77047116
+   40  -7450.76896747
+   18  -7450.76614329
+    6  -7450.76571201
+   45  -7450.75903619
+   20  -7450.75528833
+   42  -7450.75268206
+   37  -7450.74919621
+   49  -7450.74717661
+   33  -7450.74567153
+   26  -7450.74456394
+    5  -7450.73722746
+   24  -7450.73372391
+    4  -7450.72971563
+   29  -7450.72681323
+    2  -7450.72430525
+   27  -7450.71673364
+   44  -7450.71070055
+   46  -7450.70322613
+    0  -7450.68954388
+===============================================================
+
+===== (^ _ ^) =====
+Normal termination at Thu May 23 13:25:46 2019.
+Total run time: 21094 seconds = 0 days 5 hours 51 minutes 34 seconds.

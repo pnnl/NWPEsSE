@@ -1,0 +1,13 @@
+%nproc=16
+%mem=24GB
+#N B3LYP/SVP Empiricaldispersion(GD3) SCF(XQC) Geom(NoCrowd) Opt
+
+opt
+
+-1 1
+>>>>
+
+
+>>>>
+
+

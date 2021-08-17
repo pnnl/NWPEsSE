@@ -1,0 +1,9 @@
+mol             # Result file name
+mol.cluster     # Cluster file name
+5               # Maximal number of calculations
+>>>>
+inbox 0. 0. 0. 50. 50. 30.
+inbox 0. 0. 30. 50. 50. 50.
+>>>>
+cp $inp$ $out$
+>>>>

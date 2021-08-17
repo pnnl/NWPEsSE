@@ -1,0 +1,8 @@
+mol             # Result file name
+mol.cluster     # Cluster file name
+5               # Maximal number of calculations
+>>>>
+micelle 11 6 0. 0. 0. 5. 5. 5.
+>>>>
+cp $inp$ $out$
+>>>>

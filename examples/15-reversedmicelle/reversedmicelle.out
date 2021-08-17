@@ -1,0 +1,127 @@
+                                                      
+       * * * * * * * * * * * * * * * * * *            
+      *       ____   _____ _           _   *          
+     *  /\   |  _ \ / ____| |         | |  * * * * *  
+    *  /  \  | |_) | |    | |_   _ ___| |_ ___ _ __  *
+   *  / /\ \ |  _ <| |    | | | | / __| __/ _ \ '__| *
+  *  / ____ \| |_) | |____| | |_| \__ \ ||  __/ |  *  
+  * /_/    \_\____/ \_____|_|\__,_|___/\__\___|_|  *  
+  *                                                *  
+  * * * * * * * * * * * * * * * * * * * * * * * * *   
+                                                      
+
+ABCluster 2.1
+Specific flag:  official version
+Platform:       WINDOWS
+Compiled by:    pnl\zhan055@WE37103
+Compiling date: May 15 2019 12:55:42
+C++ compiler:   g++.exe (x86_64-posix-seh-rev0, Built by MinGW-W64 project) 8.1.0
+C++ options:    -O3 -Os -fno-exceptions --std=c++0x -fopenmp  -static-libstdc++ -static-libgcc -static -mavx -msse4 
+
+Contributors:
+Jun Zhang(University of Cologne): Design and coding.
+
+For any suggestions, comments, and questions on the theory and
+implementation of ABCluster, please feel free to contact:
+
+Dr. Jun Zhang, ZhangJunQcc@gmail.com
+
+If you used this program in your work, please cite these references:
+
+[1] Zhang, J.; Dolg, M.; ABCluster: The Artificial Bee Colony Algorithm for
+    Cluster Global Optimization. Phys. Chem. Chem. Phys. 2015, 17, 24173-24181.
+[2] Zhang, J.; Dolg, M.; Global Optimization of Clusters of Rigid Molecules by the
+    Artificial Bee Colony Algorithm. Phys. Chem. Chem. Phys. 2016, 18, 3003-3010.
+
+Program starts at Wed May 22 15:51:43 2019.
+Command line: " ..\..\..\lego reversedmicelle.inp "
+Process ID:   9864
+Run by:       zhan055@WE37103
+Available CPU cores:    8
+Read "OMP_NUM_THREADS": Unset
+
+Random number testing (integers): 19395...27867
+Random number testing (fractals): 0.85156719...0.73968279
+
+ -- Input/Output Parameters --
+Input file name:       reversedmicelle.inp
+Cluster file name:     reversedmicelle.cluster
+Result file directory: reversedmicelle-LM
+
+ -- Cluster Components: from [ reversedmicelle.cluster ] --
+ -------------------------------------------------
+   Source                                       #
+ -------------------------------------------------
+   popc.xyz                                   100
+   spce.xyz                                   300
+ -------------------------------------------------
+
+ -- Structure Generation --
+   0 popc.xyz: Form micelle-like structure with axis 4 - 13 along the normal centered at (50.000, 50.000, 50.000), core radius (15.000, 8.000, 8.000).
+   1 spce.xyz: Distributed inside the sphere centered at (50.000, 50.000, 50.000) with (ra, rb, rc) = (14.500, 7.500 7.500).
+
+ -- External Commands --
+gromacs4abc-1.py $inp$ system.gro 100 100 100
+gmx_d grompp -quiet -c system.gro -f min.mdp -p system.top -o system-min.tpr  1>nul 2>nul
+gmx_d mdrun -quiet -deffnm system-min  1>nul 2>nul
+gromacs4abc-2.py system-min.gro system-min.log $out$
+rm -rf system.gro system-min.gro system-min.log system-min.tpr system-min.trr system-min.edr mdout.mdp step*.pdb
+
+ -- Lego Optimization --
+Will perform at most 20 calculations.
+NO coarse optimization will be done for each generated structure.
+===============================================================
+    #          Energy       Time   State
+===============================================================
+    0 -94526.13830161        286   Succeed
+    1 37253203065.88919830          4   Succeed
+    2 -95921.57215871        383   Succeed
+    3 -17980.51619817        426   Succeed
+    4 -97243.98227839        348   Succeed
+    5 -96821.19098128        275   Succeed
+    6 -96714.68217769        302   Succeed
+    7 1254982.99379531          4   Succeed
+    8 -97139.91710841        427   Succeed
+    9 -96229.14125643        650   Succeed
+   10 -97060.22905696        534   Succeed
+   11 -77855.19602876       1239   Succeed
+   12 2626409.58392125         13   Succeed
+   13 -91481.10087105       1122   Succeed
+   14 -96562.00621893        994   Succeed
+   15 -97003.55402299       1049   Succeed
+   16 -96767.16308804        730   Succeed
+   17 -96846.47639986        734   Succeed
+   18 -96657.92877374        789   Succeed
+   19 -97524.56277135        922   Succeed
+===============================================================
+All the calculations are finished!
+
+Reordered from low to high energy:
+===============================================================
+    #          Energy
+===============================================================
+   19 -97524.56277135
+    4 -97243.98227839
+    8 -97139.91710841
+   10 -97060.22905696
+   15 -97003.55402299
+   17 -96846.47639986
+    5 -96821.19098128
+   16 -96767.16308804
+    6 -96714.68217769
+   18 -96657.92877374
+   14 -96562.00621893
+    9 -96229.14125643
+    2 -95921.57215871
+    0 -94526.13830161
+   13 -91481.10087105
+   11 -77855.19602876
+    3 -17980.51619817
+    7 1254982.99379531
+   12 2626409.58392125
+    1 37253203065.88919830
+===============================================================
+
+===== (^ _ ^) =====
+Normal termination at Wed May 22 18:59:07 2019.
+Total run time: 11244 seconds = 0 days 3 hours 7 minutes 24 seconds.

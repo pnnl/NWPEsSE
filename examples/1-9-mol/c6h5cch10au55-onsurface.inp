@@ -1,0 +1,9 @@
+mol             # Result file name
+mol.cluster     # Cluster file name
+5               # Maximal number of calculations
+>>>>
+pos 0 0 0 0 0 0
+onsurface 1 14 13
+>>>>
+cp $inp$ $out$
+>>>>

@@ -1,0 +1,97 @@
+  _   ___          _______  ______      _____       
+ | \ | \ \        / /  __ \|  ____|    / ____|      
+ |  \| |\ \  /\  / /| |__) | |__   ___| (___   ___  
+ | . ` | \ \/  \/ / |  ___/|  __| / __|\___ \ / _ \ 
+ | |\  |  \  /\  /  | |    | |____\__ \____) |  __/ 
+ |_| \_|   \/  \/   |_|    |______|___/_____/ \___| 
+                                                    
+
+NWPEsSe 1.0
+Specific flag:  official version
+Platform:       LINUX/UNIX
+Compiled by:    zhan055@mitcluster3.pnl.gov
+Compiling date: Jun  9 2020 11:48:34
+C++ compiler:   g++ (GCC) 8.1.0
+C++ options:    -O3 -Os -fno-exceptions --std=c++11 -fopenmp 
+
+Contributors:
+Jun Zhang(Pacific Northwest National Laboratory): Design and coding.
+
+For any suggestions, comments, and questions on the theory and
+implementation of NWPEsSe, please feel free to contact:
+
+Dr. Jun Zhang, ZhangJunQcc@gmail.com
+
+If you used this program in your work, please cite these references:
+
+[1] Zhang, J.; Dolg, M.; ABCluster: The Artificial Bee Colony Algorithm for
+    Cluster Global Optimization. Phys. Chem. Chem. Phys. 2015, 17, 24173-24181.
+[2] Zhang, J.; Dolg, M.; Global Optimization of Clusters of Rigid Molecules by the
+    Artificial Bee Colony Algorithm. Phys. Chem. Chem. Phys. 2016, 18, 3003-3010.
+[3] Zhang, J.; Glezakou, V.-A.; Rousseau, R.; Nguyen, M.-T.; NWPEsSe: An Adaptive-Learning
+    Global Optimization Algorithm for Nanosized Cluster Systems. J. Chem. Theory Comput. 2020,
+    16, 3947-3958
+
+For more efficient global optimization of atomic and molecular clusters with force fields,
+please use ABCluster from 
+
+http://www.zhjun-sci.com/software-abcluster-download.php
+
+
+Program starts at Mon Nov  2 15:30:24 2020.
+Command line: " ./lego mol.inp "
+Process ID:   35482
+Run by:       zhan051@constance01.pnl.gov
+Available CPU cores:    48
+Read "OMP_NUM_THREADS": Unset
+
+Random number testing (integers): 1115571359...956507835
+Random number testing (fractals): 0.42518073...0.08872179
+
+ -- Input/Output Parameters --
+Input file name:       mol.inp
+Cluster file name:     mol.cluster
+Result file directory: mol-LM
+
+ -- Cluster Components: from [ mol.cluster ] --
+ -------------------------------------------------
+   Source                                       #
+ -------------------------------------------------
+   h2o.xyz                                    300
+   na.xyz                                       4
+   so4.xyz                                      2
+ -------------------------------------------------
+
+ -- Structure Generation --
+   0 h2o.xyz: Distributed inside the box (0.000, 0.000, 0.000) - (8.000, 8.000, 20.000).
+   1 na.xyz: Distributed inside the box (0.000, 0.000, 0.000) - (8.000, 8.000, 20.000).
+   2 so4.xyz: Distributed inside the box (1.000, 1.000, 1.000) - (7.000, 7.000, 17.000).
+
+ -- External Commands --
+cp $inp$ $out$
+
+ -- Lego Optimization --
+Will perform at most 5 calculations.
+A coarse optimization will be done for each generated structure.
+Cluster energy boundary for training: (-10000000000.00000000, 10000000000.00000000)
+===============================================================
+    #          Energy       Time   State
+===============================================================
+    0      0.00000000          0   Energy:      0.00000000
+    1      0.00000000          0   Energy:      0.00000000
+    2      0.00000000          0   Energy:      0.00000000
+    3      0.00000000          0   Energy:      0.00000000
+    4      0.00000000          0   Energy:      0.00000000
+===============================================================
+All the calculations are finished!
+
+Reordered from low to high energy:
+===============================================================
+    #          Energy
+===============================================================
+    0      0.00000000
+===============================================================
+
+===== (^ _ ^) =====
+Normal termination at Mon Nov  2 15:30:29 2020.
+Total run time: 5 seconds = 0 days 0 hours 0 minutes 5 seconds.

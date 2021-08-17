@@ -1,0 +1,20 @@
+# Initialization
+units       real
+dimension   3
+atom_style	charge
+read_data	data.abc
+
+# Force Field
+pair_style	reax/c NULL
+pair_coeff	* * CHOSMoNiLiBFPN.ff Ni B N      # !!!! Change this line for your ReaxFF force field !!!
+
+# Settings
+thermo 1                                      # Controls how often we print that info.
+fix    1 all qeq/reax 1 0.0 10.0 1e-6 reax/c  # Fixes impose constrains on the optimization, this is a charge equilibration.
+
+# Run
+#        etol ftol maxiter maxeval
+minimize 1.E-4 1.E-6 1 1   # This command is run so only the last snapshot is dumped.
+dump     1 all xyz 10000 dump.abc.xyz
+minimize 1.E-4 1.E-6 1000 10000
+print "FINAL ENERGY: $(pe)" # Print energy

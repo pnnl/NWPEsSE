@@ -1,0 +1,15 @@
+test            # Result file name
+mol.cluster    # Cluster file name
+5000               # Maximal number of calculations
+>>>>
+pos 0 0 0 0 0 0
+inbox  0.77  -1.03  6.1  -0.77  -1.03  6.6
+>>>>
+###cp $inp$ $out$
+cp $inp$ tmp.xyz
+xtb tmp.xyz --gfnff  --input input-xtb --opt  >job.log
+energy=`awk 'NR==2{print $2}' xtbopt.xyz` ; sed -i "2c ${energy}" xtbopt.xyz
+mv xtbopt.xyz $out$
+rm tmp.xyz  xtbopt.log  job.log  .xtboptok  gfnff_topo
+#rm tmp.xyz charges wbo xtbopt.log xtbrestart job.log .xtboptok xtbtopo.mol 
+>>>>

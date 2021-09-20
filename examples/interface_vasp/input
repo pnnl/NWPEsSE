@@ -1,0 +1,12 @@
+test            # Result file name
+mol.cluster    # Cluster file name
+10                # Maximal number of calculations
+>>>>
+inbox 0 0 0 20 20 20
+>>>>
+python nwp4vasp-1.py $inp$ 5 5 5
+./nwp4vasp-2.sh
+python nwp4vasp-3.py job.log $out$
+rm CHGCAR  WAVECAR  CHG REPORT  XDATCAR  EIGENVAL  PROCAR  vasprun.xml OUTCAR DOSCAR OSZICAR PCDAT job.log 
+rm POSCAR CONTCAR
+>>>>

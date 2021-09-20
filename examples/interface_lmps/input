@@ -1,0 +1,14 @@
+go            # Result file name
+mol.cluster    # Cluster file name
+10                # Maximal number of calculations
+>>>>
+pos 0 0 30 0 0 0
+onsurface 1 31 12 #inbox 0 0 20  52.9509   55.0779   40
+>>>>
+python  nwps2lammps-1.py  $inp$  data-in-lmp  -0. 51.796218  -0. 54.104548  -0. 60. 0 0 0  4 C H O N 
+./nwps2lammps-2.sh
+python  nwps2lammps-3.py  data-out.xyz  job.log  $out$  4 C H O N
+rm -rf log.cite log.lammps data-in-lmp job.log data-out.xyz
+>>>>
+N
+

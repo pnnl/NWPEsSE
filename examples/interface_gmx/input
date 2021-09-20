@@ -1,0 +1,15 @@
+go            # Result file name
+mol.cluster    # Cluster file name
+500                # Maximal number of calculations
+>>>>
+pos 0 0 30 0 0 0
+inbox 0 0 30  48.4974226      50.4000000      40
+>>>>
+python gromacs4abc-1.py $inp$ system.gro    48.4974226      50.4000000      60
+./gromacs4abc-2.sh
+python gromacs4abc-3.py system-min.gro system-min.log $out$
+rm -rf system.gro system-min.gro system-min.log system-min.tpr system-min.trr system-min.edr mdout.mdp step*.pdb  nul
+##rm scout*xyz
+>>>>
+N
+

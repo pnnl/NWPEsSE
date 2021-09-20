@@ -1,0 +1,156 @@
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+! This is an INCAR template to be used in your VASP calculations. You should follow the rules outlined
+! in this INCAR for all of your calculations. All parameters are "tweakable" within reason, but
+! the following parameters should NOT be changed unless you have a really good reason:
+!	-- PREC
+!	-- EDIFF
+!	-- EDIFFG
+!	-- ALGO
+!	-- LREAL
+!	-- NELMIN
+!	-- LASPH
+!	-- SIGMA (unless further testing has been performed to allow for larger values)
+! As always, you should ensure you are consistent with your parameters that can affect
+! electronic/geometrical results across calculations. Please to not delete lines in this
+! file so that we can ensure consistency across calculations if checks need to be performed.
+! Additional parameters should be set in the last block.
+
+! As with everything in life, YOU SHOULD NOT BE TWEAKING SOMETHING UNLESS YOU KNOW WHY YOU ARE 
+! DOING IT. PERIOD.
+
+! Written by:
+!	--  Nisa Ulumuddin, Isaac Onyango, Kyle Groden and Jean-Sabin McEwen
+
+! Last updated: 03/29/2020 
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+! Restart job flags
+ISTART   = 0             ! Wavefunction input setting (0 is fresh)
+ICHARG   = 2             ! Charge density density input setting (2 is fresh)
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+! Calculation type
+IBRION   = 2             ! Control flag for type of calculation (1-3 is geom opt, 0 is MD, -1 is static)
+!SMASS=1.0               ! If you are doing MD simulations or IBRION=3, then the value of SMASS needs to be set as well 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+! Electronic settings
+ENCUT    = 500           ! ALWAYS set the energy cutoff for each KPOINT to determine # of plane waves. See Sholl/Steckel Ch 3.2 for more discussion. Note that if you are using a soft PAW potential then the value will need to be decreased proportionally. Generally it should be at least 1.33 times the largest value in all the POTCAR files.
+PREC     = Accurate      ! Accurate precision for your grids, please do NOT change
+ALGO     = F             ! Always use F (for fast!), highly-optimized black-box routine. 
+LASPH    = T             ! Add non-spherical corrections to the PAW sphere (cheap and increases acc.)
+NELM     = 40            ! Max number of electronic steps in SCF cycle
+NELMDL = -8              ! number of non-self-consistent steps at the beginning
+NELMIN   = 6             ! Minimum number of SCF steps (set to ensure accurate forces)
+ISPIN    = 1             ! Flag for spin polarized calculations (set to 2 for spin-polarization)
+! MAGMOM  = ?             ! Initialize magnetic moments here if ISPIN = 2
+LREAL    = A             ! Allow VASP to decide how projectors are evaluated (real vs reciprocal space). See Sholl/Steckel Ch 3.1. It is recommended to use the real-space projection scheme for systems containing more than 20 atoms in the VASP manual, however we recommend to use it always.
+!ROPT   = ?            ! coupled to PREC. You should set this be checking the OUTCAR according to the instruction as outlined on https://www.vasp.at/wiki/index.php/ROPT
+EDIFF    = 1.0E-4        ! Allowed energy diff. (dev rec) between SCF steps to call it cycle done (in eV)
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+! Smearing
+! Rules for ISMEAR (during geometry optimization runs at least):
+!    --  FOR SEMICONDUCTORS AND INSULATORS (more than 4 KPOINTS): ISMEAR = -5 (more accurate than 0)
+!    --  FOR SEMICONDUCTORS/INSULATORS (big cells): ISMEAR = 0
+!    --  FOR METALS: ISMEAR = 1 or 2
+!    --  FOR MOLECULES: ISMEAR = 1 or 0 (try to be consistent with surface/bulk calculation)
+! Rules for SIGMA: Default is 0.2 eV, but VASP developers claim this to be bad...
+! We mandate that you use 0.1 eV unless you have further testing (that could be published)
+!
+! See Sholl/Steckel Ch 3, p 11 for more discussions on this.
+!
+ISMEAR   = 1
+SIGMA    = 0.1
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+! Symmetry
+! VASP will exploit symmetry to computation of charge densities and during geometry optimizations
+!     -- During bulk calculations, this is a good thing, so make sure to set ISYM = 2.
+!     -- During surface calculations, this is a bad thing (artificial constraint). 
+!        Therefore, you should remove symmetry by setting ISYM = 0.
+! Again, symmetry is a constraint. Please be careful when considering whether or not to use it.
+ISYM     = 0             ! Flag to set symmetry, 2 is turning on, 0 is off (except time reversal) 
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+! Geometry control settings
+ISIF     = 2             ! How to optimize geometry, 2 is positions only (usually use this)
+NSW      = 50           ! Number of ionic steps
+POTIM    = 0.1           ! Timestep for geometry optimization or MD steps (verlet algorithm)
+EDIFFG   = -0.03         ! Force criteria for all relaxed cart. coordinates in eV/A, ALWAYS NEGATIVE!
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+! Dipole corrections
+LDIPOL   = F             ! Flag for dipole corrections along vectors
+!IDIPOL   = ?             ! Index of lattice vector to enable dipole corrections along
+!EFIELD   = ?             ! Set the Mag. of electric in eV/A (only set if using field obviously)
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+! Output settings
+LWAVE    = F             ! Flag to set if WAVECAR gets written (KS states in binary...)
+LCHARG   = F             ! Flag to set if charge density (on real-space grid) gets written
+LVTOT    = F             ! Flag to set if potential energy on real space grid is evaluated
+LORBIT   = 10            ! Flag to set how density of states projections are performed (any value fine)
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+! Parallelization settings
+! Let NC = the number of cores
+! We have the following relationships for work-sharing requirements (where % is modulus operator):
+!   -- NC % KPAR        = 0
+!   -- (NC/KPAR) % NPAR = 0
+! Note: you should try to make NPAR as close to the sqrt of the number of cores as possible
+NPAR     = 1             ! Number of bands treated in parallel
+KPAR     = 1             ! Number of reciprocal space points to treat in parallel
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+! VDW functional settings (straight from VASP developers)
+! You should comment out the functional that you want to use, we my default comment all of them out!
+! I do not recommend use of the optB88 functional for a number of reasons
+! Do not try to read into the meaning of any of these parameters (comments omitted), just go with it man
+
+! optB86b functional
+!GGA      = MK
+!PARAM1   = 0.1234
+!PARAM2   = 1.0000
+!LUSE_VDW = .TRUE.
+!AGGAC    = 0.0000
+
+! vdw-DF2 functional
+!GGA      = ML
+!LUSE_VDW = .TRUE.
+!Zab_vdW  = -1.8867
+!AGGAC    =  0.0000
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+! NEB calculation settings, keep turned off unless you want to perform an NEB calculation
+! NOTE: NEB calculations are best performed without consideration of symmetry, so turn ISYM = 0
+!ICHAIN   = 0            ! Set the algorithm to run (0 is NEB)
+!SPRING   = -5.0         ! Spring constant between images in eV/A^2, DO NOT CHANGE THIS
+!IMAGES   = 4            ! Don't be an idiot here. 4-5 images is a good number.
+!LCLIMB   = T            ! Set climbing image algorithm (normal NEB performed on first few steps)
+
+
+! NEB optimizer tags! Henkelman wrote his own optimizers. We recommend you use those.
+! To do so, turn POTIM = 0 and IBRION = 3 in the VASP settings and then set the following tags:
+!IOPT     = 3            ! Optimizer type, see Henkelman's manual for various options
+!TIMESTEP = 0.10         ! Timestep for optimizers (you can play with this)
+!MAXMOVE  = 0.20         ! Maximum allowed size of net translation during geometry update
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+! Additional tags
+! Common things that might go here: AMIX, BMIX, NELMDL...
+! Tags here should not ultimately affect electronic energy answers though, only convergence tweaks....
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

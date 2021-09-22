@@ -1,0 +1,44 @@
+units           metal
+atom_style      charge
+dimension       3
+boundary        p p p
+atom_modify     map array
+
+read_data       data-in-lmp
+
+shell 		cp  /people/zhan051/bin/lib.comb3  ./
+
+pair_style      comb3 polar_off
+pair_coeff      * *  /people/zhan051/bin/ffield.comb3  Cu O
+
+neighbor        0.2 bin
+timestep        0.0001
+compute         pe all pe/atom
+compute         ke all ke/atom
+
+fix             chg0 all qeq/comb 2 0.001
+
+thermo          1
+thermo_style    custom step elapsed temp press etotal pe ke
+thermo_modify   norm yes
+
+
+minimize        1.0e-4 1.0e-4 1 1
+dump            d1 all xyz 20000 data-out.xyz
+###dump_modify     d1 element  Cu O
+minimize        1.0e-10 1.0e-10 5000 5000
+
+print "FINAL ENERGY: $(pe)" # Print energy
+
+
+#variable        MDtemp equal 10
+#variable        MDpres equal 0.0
+##velocity        all create ${MDtemp} 272168
+
+#fix             1b all nve
+#fix             2b all langevin ${MDtemp} ${MDtemp} 10 48279
+#fix             b2 all nvt temp ${MDtemp} ${MDtemp} 10.0
+
+#run             100
+#write_data      data-final-lmp
+

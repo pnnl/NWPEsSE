@@ -1,0 +1,37 @@
+units           real
+atom_style      charge
+dimension       3
+boundary        p p p
+atom_modify     map array
+
+read_data       data-in-lmp
+
+pair_style      reax/c NULL
+pair_coeff      * *  /people/zhan051/bin/jp102272z_si_001.txt    Cu O
+
+timestep        0.1
+fix             chg1 all  qeq/reax  1  0.0  10.0  1e-6  reax/c
+
+
+thermo          1
+thermo_style    custom step elapsed temp press etotal pe ke
+thermo_modify   norm yes
+
+
+minimize        1.0e-14 1.0e-14 5000 5000
+
+dump            d1 all xyz 10 data-out.xyz
+#dump_modify     d1 element  Cu O
+
+
+variable        MDtemp equal 10
+variable        MDpres equal 0.0
+##velocity        all create ${MDtemp} 272168
+
+fix             1b all nve
+#fix             2b all langevin ${MDtemp} ${MDtemp} 10 48279
+#fix             b2 all nvt temp ${MDtemp} ${MDtemp} 10.0
+
+run             100
+write_data      data-final-lmp
+
